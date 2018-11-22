@@ -3,7 +3,7 @@ lib/bs
 .merlin
 .bsb.lock
 *.bs.js
-*.js
+src/**/*.js
 
 .serverless/
 node_modules/
