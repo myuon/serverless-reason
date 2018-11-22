@@ -1,0 +1,22 @@
+{
+  "name": "serverless-reason",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w"
+  },
+  "keywords": [
+    "BuckleScript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "^4.0.7",
+    "copy-webpack-plugin": "^4.6.0",
+    "serverless-webpack": "^5.2.0",
+    "webpack": "^4.26.0",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {}
+}

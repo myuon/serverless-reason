@@ -1,0 +1,10 @@
+lib/bs
+.vscode
+.merlin
+.bsb.lock
+*.bs.js
+*.js
+
+.serverless/
+node_modules/
+.vscode/

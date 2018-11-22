@@ -1,0 +1,27 @@
+service: serverless-reason
+
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  memorySize: 128
+  stage: ${opt:stage, 'dev'}
+
+package:
+  individually: true
+
+functions:
+  echo:
+    handler: src/functions/echo.handler
+    events:
+      - http:
+          path: /echo/{value}
+          method: get
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: false
+    packager: 'yarn'
