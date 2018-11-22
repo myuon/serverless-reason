@@ -1,16 +1,3 @@
+# Serverless-reason
 
-
-# Build
-```
-npm run build
-```
-
-# Watch
-
-```
-npm run watch
-```
-
-
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
+Project template for serverless framework in Reason ML. Use `nodejs8.10` as runtime.
