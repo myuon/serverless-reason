@@ -1,17 +1,26 @@
 external encode : 'a => Js.Json.t = "%identity";
 
-type handler =
-  (
-    {. "pathParameters": Js.Dict.t(Js.Json.t)},
-    unit,
-    (. Js.null(unit), {. "statusCode": int, "body": string}) => Js.Promise.t(unit)
-  ) => Js.Promise.t(unit);
+/* Sorry I'm a lazy person! */
+type event = {
+  .
+  "pathParameters": Js.Dict.t(string),
+};
 
-let handler : handler = (event, _context, callback) => {
+type context = unit;
+type callback = (. Js.null(string), Js.Json.t) => Js.Promise.t(unit);
+
+type response = {
+  .
+  "statusCode": int,
+  "body": string,
+};
+
+let handler : (event, context, callback) => Js.Promise.t(response) = (event, _, _) => {
   Js.log("hello");
 
-  callback(. Js.null, {
+  {
     "statusCode": 200,
-    "body": event##pathParameters |> Js.Dict.unsafeGet(_, "value") |> Js.Json.decodeString |> Js.Option.getExn,
-  });
+    "body": event##pathParameters |> Js.Dict.unsafeGet(_, "value"),
+  }
+  |> Js.Promise.resolve;
 };
