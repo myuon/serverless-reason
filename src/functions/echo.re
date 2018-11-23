@@ -1,5 +1,3 @@
-external encode : 'a => Js.Json.t = "%identity";
-
 /* Sorry I'm a lazy person! */
 type event = {
   .
